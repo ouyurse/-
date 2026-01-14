@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>世界展示 - 鸣潮</title>
+    <link rel="stylesheet" href="../css/global/variables.css">
+    <link rel="stylesheet" href="../css/global/buttons.css">
+    <link rel="stylesheet" href="../css/global/base.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/loader.css">
+    <link rel="stylesheet" href="../css/pages/world-page.css">
+</head>
+<body class="world-page">
+    
+    <div id="loader-wrapper">
+        <div class="loading-text">
+            <span>W</span><span>U</span><span>T</span><span>H</span><span>E</span><span>R</span><span>I</span><span>N</span><span>G</span>
+            <span class="space"></span><span>W</span><span>A</span><span>V</span><span>E</span><span>S</span>
+        </div>
+    </div>
+
+        
+    <div id="wd-dynamic-bg"></div>
+    <div id="wd-bg-overlay"></div>
+
+    <header class="navbar scrolled">
+        <div class="container flex-row">
+            <div class="logo">WUTHERING WAVES</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="./news-detail.html">资讯</a></li>
+                    <li><a href="world.html" class="active" style="color: var(--primary-color);">世界观</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <a href="#" class="primary-btn" style="padding: 8px 20px; font-size: 0.9rem;">立即下载</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="world-container">
+        <section class="world-header">
+            <div class="container"><h1 class="title">世界展示</h1></div>
+            <div class="full-divider"></div>
+        </section>
+
+        <section class="wd-carousel-wrapper">
+            <div class="wd-carousel-viewport">
+                <div class="wd-carousel-track">
+                    
+                    <div class="wd-card-item active" 
+                         data-title="瑝珑" data-pinyin="HUANGLONG" 
+                         data-desc="理珑疆幅辽阔、地大物博，属地共一庭六州，均有一位岁主，对应东方七宿。经灾厄淬砺而绵延，历久而弥新。理珑人得理珑之风土，亦坚忍质直，百折不摧。">
+                        <img src="../img/maps/huanglong.jpg" alt="瑝珑">
+                        <a href="map-huanglong.html" class="wd-explore-btn">进入地图</a>
+                    </div>
+
+                    <div class="wd-card-item" 
+                         data-title="黑海岸" data-pinyin="THE BLACK SHORES" 
+                         data-desc="隐藏在索拉里斯风暴海上的黑石群岛，据说聚集着全世界各行各业的精英人才，因其致力于对抗悲鸣而与索拉里斯的大多数国家均有广泛而深度的合作。">
+                        <img src="../img/maps/the black shores.jpg" alt="黑海岸">
+                        <a href="map-blackshores.html" class="wd-explore-btn">进入地图</a>
+                    </div>
+                    
+                    <div class="wd-card-item" 
+                         data-title="黎那汐塔" data-pinyin="RINASCITA" 
+                         data-desc="由群岛上的数个高度独立的城邦组成的国家，并不存在传统意义上的政治中心。传说中，黎那汐塔人的先祖为了从悲鸣中幸存，从另一片土地渡海迁徙而来。黎那汐塔人凭借着名为「公共声骸」的特殊声骸技术，将声骸广泛运用在了生活中的方方面面。「声骸之国」的别称也正是由此而来。">
+                        <img src="../img/maps/rinascita.jpg" alt="黎那汐塔">
+                        <a href="map-rinascita.html" class="wd-explore-btn">进入地图</a>
+                    </div>
+
+                    <div class="wd-card-item" 
+                         data-title="拉海洛" data-pinyin="LAHAI-ROI" 
+                         data-desc="坐落于「罗伊冰原」之下，温暖湿润的地下绿洲。古时因地极变动，在此创立星炬学院，这座无国界的学园都市，已成为众多学术新星的摇篮。">
+                        <img src="../img/maps/lahai-roi.jpg" alt="拉海洛">
+                        <a href="map-lahairoi.html" class="wd-explore-btn">进入地图</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="wd-nav-controls">
+                <button class="wd-nav-arrow" id="prevBtn">←</button>
+                <button class="wd-nav-arrow" id="nextBtn">→</button>
+            </div>
+        </section>
+
+        <section class="world-info-box">
+            <div class="container info-flex-container">
+                <div class="info-left">
+                    <h2 id="world-title" class="huge-title">瑝珑</h2>
+                    <p id="world-pinyin" class="pinyin">HUANGLONG</p>
+                </div>
+                <div class="info-right">
+                    <p id="world-desc" class="world-desc">
+                        理珑疆幅辽阔、地大物博，属地共一庭六州，均有一位岁主，对应东方七宿。
+                        经灾厄淬砺而绵延，历久而弥新。
+                        理珑人得理珑之风土，亦坚忍质直，百折不摧。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/loader.js"></script>
+    
+    <script src="../js/pages/world-page.js"></script>
+</body>
+</html>

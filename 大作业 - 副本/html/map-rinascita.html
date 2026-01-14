@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黎那汐塔 Rinascita - 艺术之都</title>
+    
+    <link rel="stylesheet" href="../css/global/variables.css">
+    <link rel="stylesheet" href="../css/global/base.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/loader.css">
+    
+    <link rel="stylesheet" href="../css/pages/map-rinascita.css">
+    <link rel="stylesheet" href="../css/components/music-player.css">
+</head>
+<body class="map-body">
+
+    <div id="loader-wrapper">
+        <div class="loading-text">
+            <span>R</span><span>i</span><span>n</span><span>a</span>
+            <span class="space"></span>
+            <span>s</span><span>c</span><span>i</span><span>t</span><span>a</span>
+        </div>
+    </div>
+
+    <div id="rn-art-bg"></div>
+    <div id="rn-vignette"></div> <header class="navbar">
+        <div class="container flex-row">
+            <div class="logo">WUTHERING WAVES</div>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="world.html">世界观</a></li>
+                    <li><a href="map-huanglong.html">瑝珑</a></li>
+                    <li><a href="map-blackshores.html">黑海岸</a></li>
+                    <li><a href="#" class="active" style="color: var(--primary-color);">黎那汐塔</a></li>
+                    <li><a href="map-lahairoi.html">拉海洛</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="rn-container">
+        
+        <div class="rn-deco-line-top"></div>
+
+        <div class="rn-header">
+            <h1 class="rn-main-title">RINASCITA</h1>
+            <p class="rn-cn-title">黎那汐塔</p>
+            <div class="rn-ornament">✦ ✦ ✦</div>
+            <p class="rn-subtitle">复兴的乐章 · 永恒的白石之城</p>
+        </div>
+
+        <div class="rn-gallery-wrapper">
+            <div class="rn-gallery-track">
+                
+                <div class="rn-frame active" 
+                     data-title="拉古那" 
+                     data-en="LAGUNA" 
+                     data-desc="黎那汐塔的城邦之一，拉古那是一座无比繁荣的港口城市。整座城市坐落在海上，城区之间由水道相互联通。民众普遍信奉岁主，将公共声骸视为岁主的赐福，甚至传达岁主意志的使者。">
+                    <div class="frame-border">
+                        <img src="../img/maps/rs-laguna.jpg" alt="拉古那">
+                    </div>
+                </div>
+
+                <div class="rn-frame" 
+                     data-title="阿维纽林神学院" 
+                     data-en="AVIGNOLIN THEOLOGICAL SEMINARY" 
+                     data-desc="昔日的神学院，如今已沉眠于浩渺云海之中。它曾记录过黎那汐塔诸般的灿烂辉煌，也掩藏过不可言说的诸多秘密。">
+                    <div class="frame-border">
+                        <img src="../img/maps/rs-awnl.jpg" alt="阿维纽林神学院">
+                    </div>
+                </div>
+
+                <div class="rn-frame" 
+                     data-title="巡游天国" 
+                     data-en="PARADISE CRUISE" 
+                     data-desc="隐藏于黑潮之内的“另一个世界”。古老神明的阴暗低语自深渊传来，似是此世一切恶意与恐惧的发源。在那幽冥世界的尽头，无瑕的天国正高悬于天空之中。死物们的巡礼仍在继续，它们齐声颂唱，日夜不息——只为换来祂的恩典与救赎。">
+                    <div class="frame-border">
+                        <img src="../img/maps/rs-xytg.jpg" alt="巡游天国">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="rn-footer-controls">
+            <div class="rn-text-area">
+                <h2 id="area-title">拉古那</h2>
+                <div class="rn-divider-gold"></div>
+                <p id="area-desc">黎那汐塔的城邦之一，拉古那是一座无比繁荣的港口城市。整座城市坐落在海上，城区之间由水道相互联通。民众普遍信奉岁主，将公共声骸视为岁主的赐福，甚至传达岁主意志的使者。</p>
+            </div>
+            
+            <div class="rn-nav-btns">
+                <button id="prevBtn" class="classic-btn">PREV</button>
+                <div class="page-indicator">/</div>
+                <button id="nextBtn" class="classic-btn">NEXT</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/loader.js"></script>
+    <script src="../js/pages/map-rinascita.js"></script>
+    <script src="../js/components/music-player.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+/* css/components/navbar.css */
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 1.5em 0;
+    z-index: 10000;
+    transition: all 0.4s ease;
+    display: block !important;
+}
+
+.map-body .navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 10px 0;
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo{
+    font-size: 1.2em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+} 
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95em;
+    position: relative;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover{
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;            
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after{
+    width: 100%;
+}
+
+.nav-actions{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn{
+    background:transparent;
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* === 默认状态（电脑端） === */
+.menu-toggle {
+    display: none; /* 电脑上不显示这个按钮 */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* === 手机端适配 (屏幕小于 768px) === */
+@media screen and (max-width: 768px) {
+    
+    /* 1. 显示菜单按钮 */
+    .menu-toggle {
+        display: block;
+        z-index: 10001;
+    }
+
+    /* 2. 把导航链接变成垂直下拉菜单 */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 默认藏在屏幕右侧外面 */
+        width: 70%;   /* 占据屏幕宽度的 70% */
+        height: 100vh; /* 占满全屏高度 */
+        background-color: rgba(0, 0, 0, 0.95); /* 深色背景 */
+        backdrop-filter: blur(10px);
+        
+        flex-direction: column; /* 垂直排列 */
+        justify-content: center; /* 居中 */
+        align-items: center;
+        gap: 40px;
+        
+        transition: right 0.4s ease; /* 滑动动画 */
+        z-index: 9999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* 当菜单被激活时（通过 JS 添加这个类） */
+    .nav-links.active {
+        right: 0; /* 滑入屏幕 */
+    }
+
+    /* 手机端文字放大一点 */
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+    
+    /* 3. 隐藏右侧的“立即预约”按钮（可选，防止太挤） */
+    /* 如果你想保留，可以不加下面这一行 */
+    .nav-actions .small-btn {
+        display: none;
+    }
+}

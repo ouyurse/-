@@ -1,0 +1,141 @@
+/* css/components/music-player.css */
+
+/* 播放器容器 */
+.music-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+    background: rgba(10, 10, 12, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid var(--primary-color); /* 颜色随页面主题变化 */
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    width: auto;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+/* 收起状态 (只留一个圆图标) */
+.music-widget.minimized {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    border: 2px solid var(--primary-color);
+}
+.music-widget.minimized .music-info,
+.music-widget.minimized .music-controls {
+    display: none;
+}
+.music-widget.minimized .music-disc {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* 唱片动画区 */
+.music-disc {
+    width: 40px;
+    height: 40px;
+    background: #111;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    /* 纹理模拟唱片 */
+    background-image: repeating-radial-gradient(
+      #222 0, 
+      #222 2px, 
+      #111 3px, 
+      #111 4px
+    );
+}
+
+/* 唱片旋转动画 */
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.music-disc.playing {
+    animation: spin 3s linear infinite;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* 唱片中心的小圆点 */
+.music-disc::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* 信息区 */
+.music-info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    min-width: 100px;
+}
+
+.music-title {
+    font-size: 0.9rem;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 超出显示省略号 */
+    max-width: 120px;
+}
+
+.music-status {
+    font-size: 0.7rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 控制按钮区 */
+.music-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0;
+}
+
+.control-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #000;
+}
+
+/* SVG 图标大小 */
+.control-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}

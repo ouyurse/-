@@ -1,0 +1,46 @@
+/* 全局按钮基础样式 */
+.primary-btn, .secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+/* 金色主按钮 - 继承自变量文件 */
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #000 !important;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 177, 106, 0.4);
+    filter: brightness(1.1);
+}
+
+/* 透明边框次按钮 */
+.secondary-btn {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color) !important;
+}
+
+.secondary-btn:hover {
+    background: var(--primary-color);
+    color: #000 !important;
+}
+
+/* 小号按钮变体（用于导航栏等） */
+.small-btn {
+    padding: 6px 20px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+}

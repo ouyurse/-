@@ -1,0 +1,163 @@
+/* css/pages/world-page.css */
+
+#wd-dynamic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* 放在最底层 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 核心视觉效果 */
+    filter: blur(20px) brightness(0.7); /* 模糊 + 稍微变暗 */
+    transform: scale(1.2); /* 放大以消除模糊带来的白边 */
+    
+    /* 添加过渡动画，使背景切换不那么生硬 */
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* 2. 渐变遮罩层 (上黑下透明) */
+#wd-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 放在背景图上面，内容下面 */
+    pointer-events: none; /* 让鼠标穿透，不影响操作 */
+    
+    /* 核心渐变：顶部黑色(0.9) -> 中间透明 -> 底部稍微加深一点以便文字阅读 */
+    background: linear-gradient(
+        to bottom, 
+        rgba(0,0,0,0.9) 0%, 
+        rgba(0,0,0,0.2) 40%, 
+        rgba(0,0,0,0.6) 100%
+    );
+}
+.world-header .container { padding: 70px 50px 0; max-width: 1400px; margin: 0 auto; }
+.full-divider { width: 100%; height: 1px; background: linear-gradient(to right, var(--primary-color), transparent); margin: 15px 0 30px 0; }
+
+/* --- 轮播容器 --- */
+.wd-carousel-wrapper { 
+    position: relative; 
+    width: 100%; 
+    height: 520px; 
+    overflow: hidden; /* 隐藏超出屏幕的内容 */
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.wd-carousel-viewport { 
+    width: 100%; 
+    height: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+/* 轨道：控制左右滑动动画 */
+.wd-carousel-track { 
+    display: flex; 
+    align-items: center;
+    gap: 40px; /* 卡片间距 */
+    padding: 0; 
+    width: max-content; 
+    /* 关键：transform 动画时间 0.6s，配合贝塞尔曲线实现“甩动”感 */
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+}
+
+/* --- 卡片样式 --- */
+.wd-card-item {
+    position: relative; 
+    width: 60vw;         
+    max-width: 900px;    
+    height: 480px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    flex-shrink: 0;      
+    overflow: hidden; 
+    border-radius: 4px;
+    cursor: pointer;
+    background: #000;
+    
+    /* 默认状态：稍微缩小、变暗 */
+    opacity: 0.4;        
+    transform: scale(0.92); 
+    transition: all 0.6s ease; /* 动画时长要和轨道一致 */
+    z-index: 10;
+}
+
+/* --- Active 状态：当前选中的卡片 --- */
+.wd-card-item.active { 
+    border-color: var(--primary-color); 
+    opacity: 1; 
+    transform: scale(1); /* 放大回正常尺寸 */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    z-index: 15;
+}
+
+.wd-card-item img { 
+    width: 100%; height: 100%; 
+    object-fit: cover; 
+    pointer-events: none; 
+    transition: transform 0.8s ease;
+}
+
+/* 选中时图片有轻微放大的特效 */
+.wd-card-item.active img { transform: scale(1.05); }
+
+/* --- 按钮样式 --- */
+.wd-explore-btn {
+    position: absolute; right: 30px; bottom: 30px;
+    background: var(--primary-color); color: #000 !important;
+    padding: 10px 30px; border-radius: 40px; font-weight: bold;
+    text-decoration: none;
+    opacity: 0; transform: translateY(20px); 
+    transition: all 0.4s ease 0.2s; /* 延迟 0.2s 出现 */
+    pointer-events: auto; 
+    z-index: 20;
+}
+.wd-card-item.active .wd-explore-btn { opacity: 1; transform: translateY(0); }
+
+/* 导航箭头 */
+.wd-nav-controls { 
+    position: absolute; bottom: 30px; right: 10vw; 
+    display: flex; gap: 15px; z-index: 999; pointer-events: auto; 
+}
+.wd-nav-arrow {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(0,0,0,0.8); border: 1px solid var(--primary-color);
+    color: var(--primary-color); font-size: 1.2rem;
+    cursor: pointer; transition: 0.3s;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* 标准语法 */
+}
+.wd-nav-arrow:hover { background: var(--primary-color); color: #000; transform: scale(1.1); }
+.wd-nav-arrow:active { transform: scale(0.95); }
+
+/* --- 底部信息区动画 --- */
+.world-info-box { padding: 40px 50px; position: relative; z-index: 2; }
+
+/* 关键：为文字添加过渡属性 */
+.huge-title, .pinyin, .world-desc {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.huge-title { font-size: 4rem; color: var(--primary-color); font-weight: 900; margin: 0; }
+.pinyin { font-size: 1.2rem; letter-spacing: 4px; opacity: 0.6; margin-top: -5px; }
+.world-desc { max-width: 600px; color: #ccc; font-size: 1.1rem; line-height: 1.6; }
+.info-flex-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 50px; }
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    .wd-card-item { width: 85vw; height: 350px; }
+    .huge-title { font-size: 2.5rem; }
+    .info-flex-container { flex-direction: column; gap: 20px; }
+    .wd-nav-controls { right: 50%; transform: translateX(50%); bottom: -20px; }
+}

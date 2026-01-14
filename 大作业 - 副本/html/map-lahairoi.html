@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉海洛 Lahai-Roi - 地下生态区</title>
+    
+    <link rel="stylesheet" href="../css/global/variables.css">
+    <link rel="stylesheet" href="../css/global/base.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/loader.css">
+    
+    <link rel="stylesheet" href="../css/pages/map-lahairoi.css">
+    <link rel="stylesheet" href="../css/components/music-player.css">
+</head>
+<body class="map-body">
+
+    <div id="loader-wrapper">
+        <div class="loading-text">
+            <span>L</span><span>A</span><span>H</span><span>A</span><span>I</span>
+        </div>
+    </div>
+
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    <div class="bio-vignette"></div>
+
+    <header class="navbar">
+        <div class="container flex-row">
+            <div class="logo">WUTHERING WAVES</div>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="world.html">世界观</a></li>
+                    <li><a href="map-huanglong.html">瑝珑</a></li>
+                    <li><a href="map-blackshores.html">黑海岸</a></li>
+                    <li><a href="map-rinascita.html">黎那汐塔</a></li>
+                    <li><a href="#" class="active" style="color: var(--acid-green);">拉海洛</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lh-container">
+        
+        <div class="lh-header">
+            <div class="bio-hazard-icon">☣</div>
+            <h1 class="lh-title" data-text="LAHAI-ROI">LAHAI-ROI</h1>
+            <div class="lh-bar-code">|| ||| || ||||| ||</div>
+            <p class="lh-subtitle">
+                <span class="highlight-p">SECTOR-4</span> // UNDERGROUND OASIS
+            </p>
+        </div>
+
+        <div class="lh-carousel-wrapper">
+            <div class="lh-carousel-track">
+                
+                <div class="lh-poster active" 
+                     data-title="星炬学院" 
+                     data-code="ZONE: A-01" 
+                     data-desc="全称「深空联合：星炬学院」，作为无国界科研共同体，它是纯粹求知者的理想乡。其名源自“以求知心为火种，高擎照亮文明的炬火”。在这座大型学院都市中，知识自由流通，多元文化于此交汇共鸣。">
+                    <div class="poster-inner">
+                        <div class="poster-tag">INFO_01</div>
+                        <img src="../img/maps/lr-xjxy.jpg" alt="星炬学院">
+                        <div class="glitch-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="lh-poster" 
+                     data-title="浮光林" 
+                     data-code="ZONE: B-07" 
+                     data-desc="罗伊人的圣地，日灵们栖息的森林，整片土地沐浴于炉芯的光辉之中。参天的巨树皆朝光源尽情伸展，深根交织成网，将恩惠还予大地。">
+                    <div class="poster-inner">
+                        <div class="poster-tag">INFO_02</div>
+                        <img src="../img/maps/lr-fgl.jpg" alt="浮光林">
+                        <div class="glitch-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="lh-poster" 
+                     data-title="研究院" 
+                     data-code="ZONE: C-09" 
+                     data-desc="全称「深空联合：研究院」，与星炬学院同属无国界科研共同体「深空联合」，专注前沿研究与技术的提取与转化。它与交通枢纽「联运椎骨」相接，高悬于巨剑顶端，形如守护的星环，俯瞰拉海洛的大地。">
+                    <div class="poster-inner">
+                        <div class="poster-tag">INFO_03</div>
+                        <img src="../img/maps/lr-yjy.jpg" alt="研究院">
+                        <div class="glitch-overlay"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="lh-controls">
+            <div class="lh-terminal">
+                <div class="terminal-header">
+                    <span class="status-dot"></span> SYSTEM ONLINE
+                </div>
+                <div class="terminal-body">
+                    <h3 id="info-code">> TARGET: ZONE A-01</h3>
+                    <h2 id="info-title">星炬学院</h2>
+                    <p id="info-desc">正在读取数据库... [权限通过]</p>
+                </div>
+            </div>
+            
+            <div class="lh-buttons">
+                <button id="prevBtn" class="cyber-btn">< PREV</button>
+                <button id="nextBtn" class="cyber-btn">NEXT ></button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/loader.js"></script>
+    <script src="../js/pages/map-lahairoi.js"></script>
+    <script src="../js/components/music-player.js"></script>
+</body>
+</html>

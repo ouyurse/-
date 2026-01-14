@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑海岸 - 区域展示</title>
+    
+    <link rel="stylesheet" href="../css/global/variables.css">
+    <link rel="stylesheet" href="../css/global/base.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/loader.css">
+    
+    <link rel="stylesheet" href="../css/pages/map-blackshores.css">
+    <link rel="stylesheet" href="../css/components/music-player.css">
+</head>
+<body class="map-body">
+
+    <div id="loader-wrapper">
+        <div class="loading-text">
+            <span>B</span><span>L</span><span>A</span><span>C</span><span>K</span>
+            <span class="space"></span>
+            <span>S</span><span>H</span><span>O</span><span>R</span><span>E</span><span>S</span>
+        </div>
+    </div>
+
+    <div id="bs-dynamic-bg"></div>
+    <div id="bs-bg-overlay"></div>
+
+    <header class="navbar">
+        <div class="container flex-row">
+            <div class="logo">WUTHERING WAVES</div>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="world.html">世界观</a></li>
+                    <li><a href="map-huanglong.html">瑝珑</a></li>
+                    <li><a href="#" class="active" style="color: var(--primary-color);">黑海岸</a></li>
+                    <li><a href="map-rinascita.html">黎那汐塔</a></li>
+                    <li><a href="map-lahairoi.html">拉海洛</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="bs-container">
+        <div class="bs-header">
+            <h1 class="bs-main-title">黑海岸</h1>
+            <div class="bs-divider"></div>
+            <p class="bs-subtitle">数据与现实交错的彼岸</p>
+        </div>
+
+        <div class="bs-carousel-wrapper">
+            <div class="bs-carousel-track">
+                
+                <div class="bs-card active" 
+                     data-title="时隙废都" 
+                     data-en="TIME SLOT WASTELAND" 
+                     data-desc="如琥珀般封存在索诺拉中的废墟都市，昔日繁华的商业建筑长满荒草，低地道路被海水浸没。悲鸣周而复始，时空支离破碎，此间的景色却仿佛永恒···。">
+                    <img src="../img/maps/bs-shixifeidu.jpg" alt="时隙废都">
+                    <div class="card-content">
+                        <h3>时隙废都</h3>
+                    </div>
+                </div>
+
+                <div class="bs-card" 
+                     data-title="黑海岸群岛" 
+                     data-en="BLACKSHORE ARCHIPELAGO" 
+                     data-desc="隐于海雾之中的神秘群岛黑海岸，也正是奔走于世间众多客卿与执花们的港湾。构成岛屿的黑石终日散发的巨大回音能量，形成了环绕黑海岸的诡请「迷雾」。">
+                    <img src="../img/maps/bs-heihaianqundao.jpg" alt="黑海岸群岛">
+                    <div class="card-content">
+                        <h3>黑海岸群岛</h3>
+                    </div>
+                </div>
+
+                <div class="bs-card" 
+                     data-title="泰缇斯之底" 
+                     data-en="THE DEPTHS OF TETHYS" 
+                     data-desc="黑海岸的潮汐测量中枢—泰缇斯系统的本源所在。泰缇斯系统的运算结果分布于无垠的地下星河，仿若流转不息的天体。这些由代码构筑而成的天体被称作「星图」。">
+                    <img src="../img/maps/bs-taitisizhidi.jpg" alt="泰缇斯之底">
+                    <div class="card-content">
+                        <h3>泰缇斯之底</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bs-footer-controls">
+            <div class="bs-info-box">
+                <h2 id="area-title">时隙废都</h2>
+                <h3 id="area-en">TIME SLOT WASTELAND</h3>
+                <p id="area-desc">如琥珀般封存在索诺拉中的废墟都市，昔日繁华的商业建筑长满荒草，低地道路被海水浸没。悲鸣周而复始，时空支离破碎，此间的景色却仿佛永恒···。</p>
+            </div>
+            
+            <div class="bs-nav-btns">
+                <button id="prevBtn" class="nav-arrow">←</button>
+                <button id="nextBtn" class="nav-arrow">→</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/loader.js"></script>
+    <script src="../js/pages/map-blackshores.js"></script>
+    <script src="../js/components/music-player.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* css/components/card.css */
+
+.content-grid {
+    display: grid;
+    /* 自动适应宽度，最小宽度调整为 280px 以适应手机 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; /* 增加一点卡片之间的间距 */
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    /* 隐藏溢出的内容，保证图片的圆角也能显示出来 */
+    overflow: hidden; 
+    
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    padding: 0; /* 去掉父元素的内边距，让图片贴边 */
+}
+
+/* 卡片图片的容器 */
+.card-image {
+    width: 100%;
+    height: 180px; /* 固定图片高度，防止参差不齐 */
+    overflow: hidden;
+}
+
+/* 图片本身的样式 */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 关键：让图片裁剪填满，不变形 */
+    transition: transform 0.5s ease;
+}
+
+/* 卡片内容的容器（原本的 padding 移到这里） */
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* 让内容区自动撑开高度 */
+}
+
+/* 鼠标悬停特效 */
+.card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 鼠标悬停时，图片稍微放大一点 */
+.card:hover .card-image img {
+    transform: scale(1.1);
+}

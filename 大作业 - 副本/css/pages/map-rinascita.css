@@ -1,0 +1,160 @@
+/* css/pages/map-rinascita.css */
+
+/* --- 1. 全局氛围设置 --- */
+:root {
+    --rn-gold: #d4b16a;
+    --rn-dark: #0f0f12;
+    --rn-serif: "Playfair Display", "Times New Roman", serif; /* 古典衬线体 */
+}
+
+.map-body {
+    background-color: var(--rn-dark);
+    font-family: var(--rn-serif); /* 覆盖默认字体 */
+}
+
+/* 背景层 */
+#rn-art-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background-size: cover; background-position: center;
+    /* 暖色调滤镜：加一点模糊和复古褐色 */
+    filter: blur(8px) brightness(0.5) sepia(0.3);
+    transition: background-image 0.8s ease-in-out;
+}
+
+#rn-vignette {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    /* 四周暗角，中间亮，聚焦视线 */
+    background: radial-gradient(circle at center, transparent 0%, #000 120%);
+    pointer-events: none;
+}
+
+/* --- 2. 布局与排版 --- */
+.rn-container {
+    height: 100vh;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding-top: 100px; box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 顶部标题区 - 古典排版 */
+.rn-header { text-align: center; color: #fff; z-index: 10; margin-top: 10px; }
+
+.rn-main-title {
+    font-size: 4rem; font-weight: 400; margin: 0;
+    letter-spacing: 15px;
+    color: var(--rn-gold);
+    text-shadow: 0 0 20px rgba(212, 177, 106, 0.3);
+}
+
+.rn-cn-title {
+    font-size: 1.5rem; letter-spacing: 8px; margin: 5px 0;
+    opacity: 0.8; font-weight: 300;
+}
+
+.rn-ornament {
+    color: var(--rn-gold); font-size: 0.8rem; margin: 10px 0; opacity: 0.6;
+}
+
+.rn-subtitle {
+    font-family: sans-serif; /* 副标题用无衬线体增加对比 */
+    font-size: 0.8rem; letter-spacing: 4px; color: #ccc; text-transform: uppercase;
+}
+
+/* --- 3. 轮播核心 (画廊风格) --- */
+.rn-gallery-wrapper {
+    position: relative; width: 100%; height: 450px;
+    display: flex; align-items: center; justify-content: center;
+    perspective: 1000px; /* 3D 透视 */
+}
+
+.rn-gallery-track {
+    position: absolute; left: 50%;
+    display: flex; gap: 80px; /* 宽间距，像画展 */
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1); /* 优雅的慢速过渡 */
+}
+
+/* 卡片 - 画框设计 */
+.rn-frame {
+    width: 280px; height: 400px;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.6s ease;
+    transform: scale(0.85);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* 内层边框：模拟金色画框 */
+.frame-border {
+    width: 100%; height: 100%;
+    border: 1px solid rgba(212, 177, 106, 0.3);
+    padding: 10px; /* 画框内边距 */
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.4);
+    /* 顶部拱形设计，体现中世纪建筑感 */
+    border-radius: 150px 150px 4px 4px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+.rn-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 140px 140px 2px 2px; /* 配合外框 */
+    filter: sepia(0.2) contrast(1.1); /* 轻微怀旧色调 */
+}
+
+/* 激活状态：变大、发光、不透明 */
+.rn-frame.active {
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 5;
+}
+
+.rn-frame.active .frame-border {
+    border-color: var(--rn-gold);
+    box-shadow: 0 0 40px rgba(212, 177, 106, 0.2);
+    background: rgba(0,0,0,0.1);
+}
+
+/* --- 4. 底部信息区 --- */
+.rn-footer-controls {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 0 80px 60px; z-index: 10;
+}
+
+/* 左侧文字 */
+.rn-text-area { max-width: 500px; }
+#area-title {
+    font-size: 2.8rem; margin: 0; color: #fff; font-weight: 400;
+}
+.rn-divider-gold {
+    width: 60px; height: 2px; background-color: var(--rn-gold);
+    margin: 15px 0;
+}
+#area-desc {
+    color: #ccc; line-height: 1.8; font-size: 1.1rem;
+    font-style: italic; /* 斜体增加文学感 */
+}
+
+/* 右侧按钮 - 纯文字风格 */
+.rn-nav-btns {
+    display: flex; align-items: center; gap: 20px;
+}
+.classic-btn {
+    background: none; border: none; color: #888;
+    font-family: var(--rn-serif);
+    font-size: 1rem; letter-spacing: 2px;
+    cursor: pointer; transition: 0.3s;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+}
+.classic-btn:hover {
+    color: var(--rn-gold);
+    border-bottom-color: var(--rn-gold);
+}
+.page-indicator {
+    color: var(--rn-gold); font-size: 1.2rem; opacity: 0.5;
+}

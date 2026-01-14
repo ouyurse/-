@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wuthering Waves</title>
+
+    <link rel="stylesheet" href="css/global/variables.css">
+    <link rel="stylesheet" href="css/global/buttons.css">
+    <link rel="stylesheet" href="css/global/base.css">
+
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/loader.css">
+    <link rel="stylesheet" href="css/components/card.css">
+</head>
+<body>
+
+    <div id="loader-wrapper">
+        <div class="loading-text" id="loader-text">
+            <span>W</span><span>U</span><span>T</span><span>H</span><span>E</span><span>R</span><span>I</span><span>N</span><span>G</span>
+            <span class="space"></span> 
+            <span>W</span><span>A</span><span>V</span><span>E</span><span>S</span>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="container flex-row">
+
+            <div class="logo">
+                WUTHERING WAVES
+            </div>
+
+            <nav>
+                <ul class="nav-links" id="navMenu">
+                    <li><a href="#" style="color: var(--primary-color);">首页</a></li>
+                    <li><a href="#">资讯</a></li>
+                    <li><a href="./html/world.html">世界观</a></li>
+                </ul>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="切换导航">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://download.kurogames.com/transfer/mc_WnGtDn85y8lJB4mTmYHYuNjIl9n6YGVm/official/cn/zh-Hans/pc_app" class="primary-btn small-btn" style="text-decoration: none; display: inline-block;">
+                    下载
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-fullscreen">
+
+
+            <div class="video-overlay"></div>
+
+            <div class="hero-content container">
+                <h1 class="game-title">WUTHERING    WAVES</h1>
+                <p class="game-slogan">在这个世界， 苏醒。</p>
+
+                <div class="action-buttons">
+                    <a href="https://download.kurogames.com/transfer/mc_WnGtDn85y8lJB4mTmYHYuNjIl9n6YGVm/official/cn/zh-Hans/pc_app" class="primary-btn">立即下载</a>
+                    <a href="https://www.kurobbs.com/mc/home/9" class="secondary-btn">官方社区</a>
+                </div>
+            </div>
+        </section>
+
+        </section> 
+
+        <section class="container" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="flex-row" style="margin-bottom: 30px;">
+                <h2 style="font-size: 2em; border-left: 4px solid var(--primary-color); padding-left: 15px;">
+                    最新资讯
+                </h2>
+                <a href="#" style="color: var(--text-muted); text-decoration: none;">查看全部 ></a>
+            </div>
+        
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-image">
+                        <img src="./img/news/news1.jpg" alt="版本公告封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 style="color: var(--primary-color); margin-top: 0;">版本公告</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9em; margin: 10px 0 20px;">
+                            《鸣潮》1.1版本「升平盛世」现已开启！全新角色、地图等待探索。
+                        </p>
+                        <div style="margin-top: auto;">
+                            <a href="html/news-detail.html" class="secondary-btn" style="text-decoration: none; display: inline-block; font-size: 0.8em; padding: 5px 15px;">
+                                阅读更多
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">WUTHERING WAVES</div>
+
+                <div class="footer-nav">
+                    <a href="#">关于游戏</a>
+                    <a href="#">隐私政策</a>
+                    <a href="#">用户协议</a>
+                    <a href="#">家长监护</a>
+                    <a href="#">联系客服</a>
+                </div>
+
+                <div class="footer-social">
+                    <span>关注我们</span>
+                    <a href="#" class="social-link">官方微博</a>
+                    <a href="#" class="social-link">Bilibili</a>
+                    <a href="#" class="social-link">微信公众号</a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 Wuthering Waves. All Rights Reserved.</p>
+                <p>健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/hero.js"></script>
+    <script src="js/components/loader.js"></script>
+</body>
+</html>

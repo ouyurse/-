@@ -1,0 +1,233 @@
+/* css/pages/map-lahai.css */
+
+:root {
+    --acid-green: #ccff00;   /* 酸性绿：高亮、文字 */
+    --neon-purple: #8a2be2;  /* 霓虹紫：阴影、辅助 */
+    --deep-bg: #0d0221;      /* 深紫黑背景 */
+    --terminal-bg: rgba(20, 0, 40, 0.8);
+}
+
+/* --- 1. 全局背景与特效 --- */
+.map-body {
+    background-color: var(--deep-bg);
+    font-family: 'Courier New', Courier, monospace; /* 等宽字体，代码感 */
+    color: var(--acid-green);
+    overflow: hidden;
+}
+
+/* 扫描线效果 */
+.scanlines {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.2)
+    );
+    background-size: 100% 4px;
+    z-index: 99;
+    pointer-events: none;
+}
+
+/* 晕影：四周发紫 */
+.bio-vignette {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    box-shadow: inset 0 0 150px rgba(138, 43, 226, 0.4);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 噪点 */
+.noise-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* --- 2. 布局 --- */
+.lh-container {
+    height: 100vh;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding-top: 90px; box-sizing: border-box;
+    position: relative; z-index: 2;
+}
+
+/* 顶部标题 - 故障风 */
+.lh-header { text-align: center; }
+
+.lh-title {
+    font-size: 4.5rem; margin: 0;
+    font-weight: 900;
+    color: #fff;
+    /* 绿紫重影 */
+    text-shadow: 3px 3px 0px var(--neon-purple), -3px -3px 0px var(--acid-green);
+    letter-spacing: 8px;
+    position: relative;
+    display: inline-block;
+}
+
+.bio-hazard-icon {
+    font-size: 2rem; color: var(--acid-green);
+    animation: pulse 2s infinite;
+}
+
+.lh-bar-code {
+    font-family: 'Arial Black'; font-size: 0.8rem; letter-spacing: 2px;
+    transform: scaleY(1.5); margin: 10px 0; opacity: 0.8;
+}
+
+.lh-subtitle {
+    background: var(--acid-green); color: #000;
+    display: inline-block; padding: 2px 10px;
+    font-weight: bold; font-size: 0.9rem;
+}
+
+/* --- 3. 轮播核心 --- */
+.lh-carousel-wrapper {
+    position: relative; 
+    width: 100%; 
+    height: 450px;
+    margin-top: 30px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden; /* 防止出现横向滚动条 */
+}
+
+.lh-carousel-track {
+    display: flex; 
+    align-items: center;
+    
+
+    position: absolute; 
+    left: 50%; 
+    height: 100%;
+    
+    padding: 0; margin: 0;
+    transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); 
+    gap: 50px;
+}
+
+/* 卡片设计 */
+.lh-poster {
+    width: 300px; height: 420px;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.4s ease;
+    filter: grayscale(100%) contrast(1.2);
+    transform: scale(0.9);
+}
+
+.poster-inner {
+    width: 100%; height: 100%;
+    position: relative;
+    /* 绿色边框 + 紫色阴影 */
+    border: 2px solid var(--acid-green);
+    box-shadow: 10px 10px 0 var(--neon-purple);
+    background: #000;
+    overflow: hidden;
+}
+
+.lh-poster img {
+    width: 100%; height: 100%; object-fit: cover;
+    /* 关键：把图片染成紫绿色 */
+    filter: sepia(1) hue-rotate(240deg) saturate(2);
+    opacity: 0.8;
+    transition: 0.4s;
+}
+
+.poster-tag {
+    position: absolute; top: 0; right: 0;
+    background: var(--neon-purple); color: #fff;
+    padding: 5px 10px; font-weight: bold; font-size: 0.8rem;
+    z-index: 10;
+}
+
+/* 激活状态 */
+.lh-poster.active {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.lh-poster.active img {
+    filter: none; /* 还原原本颜色，或者保持风格化 */
+    opacity: 1;
+}
+
+.lh-poster.active .poster-inner {
+    box-shadow: 0 0 30px var(--acid-green); /* 激活发光 */
+    border-color: #fff;
+}
+
+/* --- 4. 底部终端机 --- */
+.lh-controls {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 0 80px 50px;
+}
+
+/* 终端框 */
+.lh-terminal {
+    width: 500px;
+    background: var(--terminal-bg);
+    border: 1px solid var(--acid-green);
+    padding: 15px;
+    position: relative;
+}
+/* 终端装饰角标 */
+.lh-terminal::before {
+    content: ''; position: absolute; top: -2px; left: -2px; width: 10px; height: 10px;
+    background: var(--acid-green);
+}
+.lh-terminal::after {
+    content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px;
+    background: var(--acid-green);
+}
+
+.terminal-header {
+    border-bottom: 1px dashed var(--acid-green);
+    padding-bottom: 5px; margin-bottom: 10px;
+    font-size: 0.8rem; opacity: 0.8;
+}
+.status-dot {
+    display: inline-block; width: 8px; height: 8px; 
+    background: var(--acid-green); border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1s infinite;
+}
+
+#info-code { margin: 0; color: var(--neon-purple); font-weight: bold; }
+#info-title { margin: 5px 0; font-size: 2.5rem; text-transform: uppercase; color: #fff; }
+#info-desc { margin: 0; line-height: 1.5; color: #ccc; }
+
+/* 赛博按钮 */
+.lh-buttons { display: flex; gap: 15px; }
+
+.cyber-btn {
+    background: transparent;
+    border: 1px solid var(--acid-green);
+    color: var(--acid-green);
+    padding: 10px 20px;
+    font-family: inherit; font-weight: bold; font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 4px 4px 0 var(--neon-purple);
+}
+
+.cyber-btn:hover {
+    background: var(--acid-green);
+    color: #000;
+    box-shadow: 2px 2px 0 var(--neon-purple);
+    transform: translate(2px, 2px);
+}
+
+.cyber-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* 动画 */
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+@keyframes pulse { 0%{transform:scale(1)} 50%{transform:scale(1.1)} 100%{transform:scale(1)} }

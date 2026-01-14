@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑝珑全境 - 鸣潮</title>
+    <link rel="stylesheet" href="../css/global/variables.css">
+    <link rel="stylesheet" href="../css/global/buttons.css">
+    <link rel="stylesheet" href="../css/global/base.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/loader.css">
+    <link rel="stylesheet" href="../css/pages/map-huanglong.css">
+    <link rel="stylesheet" href="../css/components/music-player.css">
+</head>
+<body class="map-huanglong-page">
+    
+    <div id="loader-wrapper">
+        <div class="loading-text">
+            <span>H</span><span>U</span><span>A</span><span>N</span><span>G</span><span>L</span><span>O</span><span>N</span><span>G</span>
+        </div>
+    </div>
+
+    <div id="hl-dynamic-bg"></div>
+    <div id="hl-bg-overlay"></div>
+
+    <header class="navbar scrolled">
+        <div class="container flex-row">
+            <div class="logo">WUTHERING WAVES</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="world.html">世界观</a></li> 
+                    <li><a href="#" class="active" style="color: var(--primary-color);">瑝珑</a></li>
+                    <li><a href="map-blackshores.html">黑海岸</a></li>
+                    <li><a href="map-rinascita.html">黎那汐塔</a></li>
+                    <li><a href="map-lahairoi.html">拉海洛</a></li></ul>
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hl-carousel-wrapper">
+        <div class="hl-carousel-viewport">
+            <div class="hl-carousel-track">
+                
+                <div class="hl-card-item active" 
+                     data-title="今州城" 
+                     data-pinyin="JINZHOU CITY" 
+                     data-desc="今州城位于瑝珑北部边界，修建于湖中，三面环水，一面靠山。气候湿润，四季分明。是理珑重要的关隘，抗击残响体的重要哨卡。">
+                    <img src="../img/maps/hl_jinzhou.jpg" alt="今州">
+                    <div class="hl-card-overlay"></div>
+                </div>
+
+                <div class="hl-card-item" 
+                     data-title="云凌谷" 
+                     data-pinyin="YUNLING VALLEY" 
+                     data-desc="今州建制最晚，是理珑最年轻的州府。瑝珑其他地区至今州，需进过一处关口，此为云陵谷">
+                    <img src="../img/maps/hl_yunlinggu.jpg" alt="云凌谷">
+                    <div class="hl-card-overlay"></div>
+                </div>
+
+                <div class="hl-card-item" 
+                     data-title="乘霄山" 
+                     data-pinyin="MOUNT CHENGXIAO" 
+                     data-desc="位于今州东南海域的秘境，终年被迷雾遮蔽，常人难以涉足。据传是今州先民的祖地，岁主「角」曾降临于此。由于雾障重重、航路难寻，若想前往乘霄山，需等待特定时机，由“引路人”领航。">
+                    <img src="../img/maps/hl_chenxiaoshan.jpg" alt="乘霄山">
+                    <div class="hl-card-overlay"></div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <div class="hl-nav-controls">
+            <button class="hl-nav-arrow" id="hlPrevBtn">←</button>
+            <button class="hl-nav-arrow" id="hlNextBtn">→</button>
+        </div>
+    </section>
+
+    <section class="hl-info-box">
+        <div class="container hl-info-flex">
+            <div class="hl-info-left">
+                <h2 id="hl-title" class="hl-huge-title">今州城</h2>
+                <p id="hl-pinyin" class="hl-pinyin">JINZHOU CITY</p>
+            </div>
+            <div class="hl-info-right">
+                <p id="hl-desc" class="hl-desc">
+                    今州城位于理珑北部边界，修建于湖中，三面环水，一面靠山。气候湿润，四季分明。是理珑重要的关隘，抗击残响体的重要哨卡。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/loader.js"></script>
+    <script src="../js/pages/map-huanglong.js"></script>
+    <script src="../js/components/music-player.js"></script>
+</body>
+</html>

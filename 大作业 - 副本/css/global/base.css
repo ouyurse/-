@@ -1,0 +1,103 @@
+/* css/global/base.css */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 通用工具类 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+footer {
+    background-color: #050505; /* 比背景色更深一点的黑色 */
+    padding: 60px 0 40px;      /* 增加上下的留白 */
+    margin-top: 80px;          /* 让页脚和上方内容拉开距离 */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* 增加一条极细的分割线 */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--text-color);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    opacity: 0.9;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color); 
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.social-link {
+    color: var(--text-color);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    background-color: var(--text-color);
+    color: #000;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    padding-top: 20px;
+    color: rgba(255, 255, 255, 0.3); 
+    font-size: 0.75rem;
+    line-height: 1.8;
+}
